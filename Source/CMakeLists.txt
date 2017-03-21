@@ -1,3 +1,4 @@
+#cofigure crosscompile toolchain
 SET(CMAKE_SYSTEM_NAME Generic)
 SET(CMAKE_SYSTEM_PROCESSOR ARM)
 SET(CMAKE_C_COMPILER "aarch64-elf-gcc")
@@ -6,6 +7,7 @@ SET(CMAKE_BUILD_TYPE "Debug")
 
 
 
+#configure compile
 PROJECT(FreeRtos)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8) 
 

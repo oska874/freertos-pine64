@@ -4805,3 +4805,8 @@ const TickType_t xConstTickCount = xTickCount;
 	#include "tasks_test_access_functions.h"
 #endif
 
+
+int main()
+{
+    return 0;
+}

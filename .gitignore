@@ -1,5 +1,8 @@
 
 tags
 *.o
+*.a
 *.url
+y2
+*.out
 Source/build/

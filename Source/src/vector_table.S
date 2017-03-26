@@ -1,35 +1,3 @@
-/******************************************************************************
-*
-* Copyright (C) 2014 Xilinx, Inc. All rights reserved.
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-*
-* Use of the Software is limited solely to applications:
-* (a) running on a Xilinx device, or
-* (b) that interact with a Xilinx device through a bus or interconnect.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* XILINX CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
-* OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*
-* Except as contained in this notice, the name of the Xilinx shall not be used
-* in advertising or otherwise to promote the sale, use or other dealings in
-* this Software without prior written authorization from Xilinx.
-*
-******************************************************************************/
-/*****************************************************************************/
 /**
 * @file asm_vectors.s
 *
@@ -53,7 +21,7 @@
 
 
 
-.org 0
+//.org 0
 .text
 
 .globl _boot
@@ -65,8 +33,7 @@
 .globl SErrorInterrupt
 .globl SynchronousInterrupt
 
-
-.org 0
+//.org 0
 
 .section .vectors, "a"
 
@@ -184,125 +151,39 @@ _freertos_vector_table:
 .org (FREERTOS_VBAR + 0x800)
 
 
-
-
-SynchronousInterruptHandler:
-    stp X0,X1, [sp,#-0x10]!
-    stp X2,X3, [sp,#-0x10]!
-    stp X4,X5, [sp,#-0x10]!
-    stp X6,X7, [sp,#-0x10]!
-    stp X8,X9, [sp,#-0x10]!
-    stp X10,X11, [sp,#-0x10]!
-    stp X12,X13, [sp,#-0x10]!
-    stp X14,X15, [sp,#-0x10]!
-    stp X16,X17, [sp,#-0x10]!
-    stp     X18,X19, [sp,#-0x10]!
-    stp     X29,X30, [sp,#-0x10]!
-
-        bl      SynchronousInterrupt
-
-    ldp     X29,X30, [sp], #0x10
-        ldp     X18,X19, [sp], #0x10
-    ldp X16,X17, [sp], #0x10
-    ldp X14,X15, [sp], #0x10
-    ldp X12,X13, [sp], #0x10
-    ldp X10,X11, [sp], #0x10
-    ldp X8,X9, [sp], #0x10
-    ldp X6,X7, [sp], #0x10
-    ldp X4,X5, [sp], #0x10
-    ldp X2,X3, [sp], #0x10
-    ldp X0,X1, [sp], #0x10
-
-    eret
-
-IRQInterruptHandler:
-    stp X0,X1, [sp,#-0x10]!
-    stp X2,X3, [sp,#-0x10]!
-    stp X4,X5, [sp,#-0x10]!
-    stp X6,X7, [sp,#-0x10]!
-    stp X8,X9, [sp,#-0x10]!
-    stp X10,X11, [sp,#-0x10]!
-    stp X12,X13, [sp,#-0x10]!
-    stp X14,X15, [sp,#-0x10]!
-    stp X16,X17, [sp,#-0x10]!
-    stp     X18,X19, [sp,#-0x10]!
-    stp     X29,X30, [sp,#-0x10]!
-
-    bl      IRQInterrupt
-
-    ldp     X29,X30, [sp], #0x10
-    ldp     X18,X19, [sp], #0x10
-    ldp X16,X17, [sp], #0x10
-    ldp X14,X15, [sp], #0x10
-    ldp X12,X13, [sp], #0x10
-    ldp X10,X11, [sp], #0x10
-    ldp X8,X9, [sp], #0x10
-    ldp X6,X7, [sp], #0x10
-    ldp X4,X5, [sp], #0x10
-    ldp X2,X3, [sp], #0x10
-    ldp X0,X1, [sp], #0x10
-
-    eret
-
-FIQInterruptHandler:
-
-    stp X0,X1, [sp,#-0x10]!
-    stp X2,X3, [sp,#-0x10]!
-    stp X4,X5, [sp,#-0x10]!
-    stp X6,X7, [sp,#-0x10]!
-    stp X8,X9, [sp,#-0x10]!
-    stp X10,X11, [sp,#-0x10]!
-    stp X12,X13, [sp,#-0x10]!
-    stp X14,X15, [sp,#-0x10]!
-    stp X16,X17, [sp,#-0x10]!
-    stp     X18,X19, [sp,#-0x10]!
-    stp     X29,X30, [sp,#-0x10]!
-
-        bl      FIQInterrupt
-
-    ldp     X29,X30, [sp], #0x10
-        ldp     X18,X19, [sp], #0x10
-    ldp X16,X17, [sp], #0x10
-    ldp X14,X15, [sp], #0x10
-    ldp X12,X13, [sp], #0x10
-    ldp X10,X11, [sp], #0x10
-    ldp X8,X9, [sp], #0x10
-    ldp X6,X7, [sp], #0x10
-    ldp X4,X5, [sp], #0x10
-    ldp X2,X3, [sp], #0x10
-    ldp X0,X1, [sp], #0x10
-
-    eret
-
-SErrorInterruptHandler:
-
-    stp X0,X1, [sp,#-0x10]!
-    stp X2,X3, [sp,#-0x10]!
-    stp X4,X5, [sp,#-0x10]!
-    stp X6,X7, [sp,#-0x10]!
-    stp X8,X9, [sp,#-0x10]!
-    stp X10,X11, [sp,#-0x10]!
-    stp X12,X13, [sp,#-0x10]!
-    stp X14,X15, [sp,#-0x10]!
-    stp X16,X17, [sp,#-0x10]!
-    stp     X18,X19, [sp,#-0x10]!
-    stp     X29,X30, [sp,#-0x10]!
-
-        bl      SErrorInterrupt
-
-    ldp     X29,X30, [sp], #0x10
-        ldp     X18,X19, [sp], #0x10
-    ldp X16,X17, [sp], #0x10
-    ldp X14,X15, [sp], #0x10
-    ldp X12,X13, [sp], #0x10
-    ldp X10,X11, [sp], #0x10
-    ldp X8,X9, [sp], #0x10
-    ldp X6,X7, [sp], #0x10
-    ldp X4,X5, [sp], #0x10
-    ldp X2,X3, [sp], #0x10
-    ldp X0,X1, [sp], #0x10
-
-    eret
-
+_boot:
+    mov      x0, #0
+    mov      x1, #0
+    mov      x2, #0
+    mov      x3, #0
+    mov      x4, #0
+    mov      x5, #0
+    mov      x6, #0
+    mov      x7, #0
+    mov      x8, #0
+    mov      x9, #0
+    mov      x10, #0
+    mov      x11, #0
+    mov      x12, #0
+    mov      x13, #0
+    mov      x14, #0
+    mov      x15, #0
+    mov      x16, #0
+    mov      x17, #0
+    mov      x18, #0
+    mov      x19, #0
+    mov      x20, #0
+    mov      x21, #0
+    mov      x22, #0
+    mov      x23, #0
+    mov      x24, #0
+    mov      x25, #0
+    mov      x26, #0
+    mov      x27, #0
+    mov      x28, #0
+    mov      x29, #0
+    mov      x30, #0
+//need to complete
+    b main
 .end
 

@@ -4806,7 +4806,9 @@ const TickType_t xConstTickCount = xTickCount;
 #endif
 
 
+#if 0
 int main()
 {
     return 0;
 }
+#endif

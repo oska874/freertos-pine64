@@ -18,7 +18,8 @@ ADD_EXECUTABLE(${TARGET_EXE_Z} ${A_SRC} ${FR_SOURCE_DIR} )
 
 add_custom_command(OUTPUT  ${CMAKE_BINARY_DIR}/dump
     COMMAND ${A64_OD} -D -S ${CMAKE_BINARY_DIR}/${TARGET_EXE_Z} > dump
-    COMMENT "this is dump file")
+    COMMAND ${A64_OC} -O binary frpine frpine.bin
+    COMMENT "this is dump and bin file")
 
 add_custom_target(dumpfile ALL DEPENDS dump ${TARGET_EXE_Z})
 

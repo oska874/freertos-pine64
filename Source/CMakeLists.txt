@@ -8,7 +8,7 @@ set(CMAKE_EXE_LINKER_FLAGS " -T ${CMAKE_SOURCE_DIR}/fr.lds -static ")
 
 SET(TARGET_EXE_Z "frpine")
 
-SET(A_SRC ${PROJECT_SOURCE_DIR}/src/portASM.S ${PROJECT_SOURCE_DIR}/src/vector_table.S)
+SET(A_SRC ${PROJECT_SOURCE_DIR}/src/portASM.S ${PROJECT_SOURCE_DIR}/src/vector_table.S ${PROJECT_SOURCE_DIR}/src/translation_table.S)
 
 AUX_SOURCE_DIRECTORY(./src FR_SOURCE_DIR)
 

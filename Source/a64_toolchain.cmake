@@ -1,4 +1,4 @@
-SET(A64_PATH "/opt/linaro/gcc-linaro_aarch64_bare/bin/")    #your aarch64 compiler path
+SET(A64_PATH "/opt/gcc-linaro-6.2.1-2016.11-i686_aarch64-elf/bin/")    #your aarch64 compiler path
 SET(A64_LD "${A64_PATH}aarch64-elf-ld")
 SET(A64_CC "${A64_PATH}aarch64-elf-gcc")
 SET(A64_OD "${A64_PATH}aarch64-elf-objdump")

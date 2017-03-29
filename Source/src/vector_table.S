@@ -46,8 +46,8 @@ _vector_table:
 .set L0Table,   MMUTableL0
 .set L1Table,   MMUTableL1
 .set L2Table,   MMUTableL2
-.set    vector_base,   _vector_table
-.set rvbar_base,    0xFD5C0040
+.set vector_base,   _vector_table
+.set rvbar_base,    0x01700ca0 /*rvbaraddr0_L*/
 .set counterfreq,   600000//?
 .set EL3_stack,     __el3_stack
 .set EL2_stack,     __el2_stack

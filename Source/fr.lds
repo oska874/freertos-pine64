@@ -39,21 +39,24 @@ SECTIONS
     }>DATA_SEG
 
     .stack (NOLOAD) : {
-   . = ALIGN(64);
-   _el3_stack_end = .;
-   . += _STACK_SIZE;
-   __el3_stack = .;
-   _el2_stack_end = .;
-   . += _EL2_STACK_SIZE;
-   . = ALIGN(64);
-   __el2_stack = .;
-   _el1_stack_end = .;
-   . += _EL1_STACK_SIZE;
-   . = ALIGN(64);
-   __el1_stack = .;
-   _el0_stack_end = .;
-   . += _EL0_STACK_SIZE;
-   . = ALIGN(64);
-   __el0_stack = .;
-}
+        . = ALIGN(64);
+        _el3_stack_end = .;
+        . += _STACK_SIZE;
+        __el3_stack = .;
+
+        _el2_stack_end = .;
+        . += _EL2_STACK_SIZE;
+        . = ALIGN(64);
+        __el2_stack = .;
+
+        _el1_stack_end = .;
+        . += _EL1_STACK_SIZE;
+        . = ALIGN(64);
+        __el1_stack = .;
+
+        _el0_stack_end = .;
+        . += _EL0_STACK_SIZE;
+        . = ALIGN(64);
+        __el0_stack = .;
+    }
 }
